@@ -4,3 +4,4 @@ PHP版Eureka客户端，将PHP端实现的服务注册到Eureka服务中心<br /
 
 # 相关截图
 ![image](https://raw.githubusercontent.com/ah-guobing/Eureka4PHP/master/Resources/DingTalk20171216142601.png)
+![image](https://raw.githubusercontent.com/ah-guobing/Eureka4PHP/master/Resources/DingTalk20171216143131.png)
