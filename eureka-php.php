@@ -4,7 +4,7 @@
  * File: eureka-php.php
  * User: guobingbing
  * Time: 2017/12/15 16:50
- * Desc:
+ * Desc: PHP版的Eureka客户端
  */
 
 
