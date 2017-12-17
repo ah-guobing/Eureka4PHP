@@ -158,12 +158,12 @@ error_reporting(E_ALL & ~E_NOTICE);
 $config = [
     'eureka_server' => 'http://192.168.144.1:8761/eureka/',//Eureka服务地址
     'instance_name' => 'eureka4php',//实例名
-    'instance_domain' => 'op.123.com.cn',//实例域名，若服务没有绑定域名，则填写IP
+    'instance_domain' => 'youdomain.com',//实例域名，若服务没有绑定域名，则填写IP
     'instance_ip' => '192.168.144.155',//实例IP
     'instance_port' => '80',//实例端口号
-    'instance_homepage_url' => 'http://op.123.com.cn/',//实例主页，以/结尾
-    'instance_status_url' => 'http://op.123.com.cn?ac=info',//实例状态页
-    'instance_health_check_url' => 'http://op.123.com.cn?ac=health'//实例健康检查页
+    'instance_homepage_url' => 'http://youdomain.com/',//实例主页，以/结尾
+    'instance_status_url' => 'http://youdomain.com?ac=info',//实例状态页
+    'instance_health_check_url' => 'http://youdomain.com?ac=health'//实例健康检查页
 ];
 $ac = $_GET['ac'];
 $EurekaApi = new EurekaApi($config);
