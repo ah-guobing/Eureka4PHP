@@ -64,6 +64,10 @@ class EurekaApi
         }
 
         $res = curl_exec($handle);
+        $errMsg = curl_error($handle);
+        if ($errMsg) {
+            throw new Exception('请求发生错误，出错信息为：' . $errMsg);
+        }
         curl_close($handle);
         return $res;
     }
@@ -136,8 +140,14 @@ class EurekaApi
 
     public function heartbeat()
     {
-        $this->curl($this->eurekaServer . 'apps/' . $this->instanceName . '/' . $this->instanceIp . ':' . $this->instanceName . ':'
-            . $this->instancePort . '?status=UP', 'PUT');
+        $header = array(
+            "Content-type: application/json;charset=utf-8",
+            "Accept: application/json",
+            'Connection: Keep-Alive'
+        );
+        return $this->curl($this->eurekaServer . 'apps/' . $this->instanceName . '/' . $this->instanceIp . ':' .
+            $this->instanceName . ':'
+            . $this->instancePort . '?status=UP', 'PUT', $header);
     }
 }
 
@@ -155,13 +165,16 @@ $config = [
     'instance_status_url' => 'http://op.123.com.cn?ac=info',//实例状态页
     'instance_health_check_url' => 'http://op.123.com.cn?ac=health'//实例健康检查页
 ];
+$ac = $_GET['ac'];
 $EurekaApi = new EurekaApi($config);
-if ($_GET['ac'] == 'reg') {
+if ($ac == 'reg') {
     $EurekaApi->register();
 } else if ($ac == 'heartbeat') {
     $EurekaApi->heartbeat();
 } else if ($ac == 'unreg') {
     $EurekaApi->canceller();
+} else {
+    echo '接收参数：' . $ac;
 }
 
 
