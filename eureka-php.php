@@ -4,7 +4,7 @@
  * File: eureka-php.php
  * User: guobingbing
  * Time: 2017/12/15 16:50
- * Desc: PHP版本的Eureka客户端
+ * Desc:
  */
 
 
@@ -133,6 +133,12 @@ class EurekaApi
         $this->curl($this->eurekaServer . 'apps/' . $this->instanceName . '/' . $this->instanceIp . ':' . $this->instanceName . ':'
             . $this->instancePort, 'DELETE');
     }
+
+    public function heartbeat()
+    {
+        $this->curl($this->eurekaServer . 'apps/' . $this->instanceName . '/' . $this->instanceIp . ':' . $this->instanceName . ':'
+            . $this->instancePort . '?status=UP', 'PUT');
+    }
 }
 
 /**
@@ -145,14 +151,16 @@ $config = [
     'instance_domain' => 'op.123.com.cn',//实例域名，若服务没有绑定域名，则填写IP
     'instance_ip' => '192.168.144.155',//实例IP
     'instance_port' => '80',//实例端口号
-    'instance_homepage_url' => 'http://blog.webapp123.com/',//实例主页，以/结尾
-    'instance_status_url' => 'http://blog.webapp123.com?ac=info',//实例状态页
-    'instance_health_check_url' => 'http://blog.webapp123.com?ac=health'//实例健康检查页
+    'instance_homepage_url' => 'http://op.123.com.cn/',//实例主页，以/结尾
+    'instance_status_url' => 'http://op.123.com.cn?ac=info',//实例状态页
+    'instance_health_check_url' => 'http://op.123.com.cn?ac=health'//实例健康检查页
 ];
 $EurekaApi = new EurekaApi($config);
 if ($_GET['ac'] == 'reg') {
     $EurekaApi->register();
-} else {
+} else if ($ac == 'heartbeat') {
+    $EurekaApi->heartbeat();
+} else if ($ac == 'unreg') {
     $EurekaApi->canceller();
 }
 
