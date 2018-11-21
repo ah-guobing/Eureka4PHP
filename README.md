@@ -16,6 +16,11 @@ PHP版Eureka客户端，将PHP端实现的服务注册到Eureka服务中心<br /
 当服务提供者关闭时，应向Eureka服务中心发起取消注册请求<br />
 在PHP端通过curl请求：http://youdomain/eureka-php.php?ac=unreg
 
+
+## 注意事项
+1、若Eureka服务端开启了权限认证，此时客户端请求服务端eureka_server地址格式为：http://用户名:密码@Eureka服务器域名:端口/eureka/
+
+
 ## 相关截图
 ![image](https://raw.githubusercontent.com/ah-guobing/Eureka4PHP/master/Resources/DingTalk20171216142601.png)
 ![image](https://raw.githubusercontent.com/ah-guobing/Eureka4PHP/master/Resources/DingTalk20171216143131.png)
