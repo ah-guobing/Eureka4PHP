@@ -157,6 +157,7 @@ class EurekaApi
 error_reporting(E_ALL & ~E_NOTICE);
 $config = [
     'eureka_server' => 'http://192.168.144.1:8761/eureka/',//Eureka服务地址
+    //'eureka_server' => 'http://username:upwd@192.168.144.1:8761/eureka/',//Eureka服务地址
     'instance_name' => 'eureka4php',//实例名
     'instance_domain' => 'youdomain.com',//实例域名，若服务没有绑定域名，则填写IP
     'instance_ip' => '192.168.144.155',//实例IP
