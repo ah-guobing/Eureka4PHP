@@ -7,7 +7,7 @@ PHP版Eureka客户端，将PHP端实现的服务注册到Eureka服务中心<br /
 
 ## 心跳检测
 由Eureka客户端（即微服务提供者）发起心跳检测<br />
-考虑到PHP端服务实现定时任务不够优雅，建议用Linux **Crontab**定时向Eureka发起心跳请求，执行频率：15s<br />
+考虑到PHP端服务实现定时任务不够优雅，建议用Linux **Crontab**定时向Eureka发起心跳请求，执行频率：5s<br />
 &#35; crontab -e <br />
 添加一行（eurekaCheck.sh位置改为您本机中的位置，同时此文件需要执行X权限）<br />
 &#42; &#42; &#42; &#42; &#42; /root/eurekaCheck.sh  > /dev/null 2>&1
