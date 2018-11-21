@@ -20,9 +20,9 @@ PHP版Eureka客户端，将PHP端实现的服务注册到Eureka服务中心<br /
 ## 注意事项
 1、若Eureka服务端开启了权限认证，此时客户端请求服务端eureka_server地址格式为：http://用户名:密码@Eureka服务器域名:端口/eureka/<br />
 2、若已经使用Crontab来让客户端定时续租时还出现服务状态不能保存的情况，排查方法：<br />
-Step1、Linux终端执行 # tail -f /var/log/cron ，看看定时任务是否每隔几秒就执行一次；<br />
-Step2、手动在终端执行 /usr/bin/curl http://youdomain/eureka-php.php?ac=heartbeat 看是否正常（可以在此PHP文件中debug一些信息，看是否能正常返回）；<br />
-Step3、以上两步基本上就能排查问题了，如果还不行，请留意服务注册成功后多久会存在服务剔除现象，下一次在服务即将剔除前手动请求再来观察是否续租成功。
+* Linux终端执行 # tail -f /var/log/cron ，看看定时任务是否每隔几秒就执行一次；<br />
+* 手动在终端执行 /usr/bin/curl http://youdomain/eureka-php.php?ac=heartbeat 看是否正常（可以在此PHP文件中debug一些信息，看是否能正常返回）；<br />
+* 以上两步基本上就能排查问题了，如果还不行，请留意服务注册成功后多久会存在服务剔除现象，下一次在服务即将剔除前手动请求再来观察是否续租成功。
 
 
 ## 相关截图
